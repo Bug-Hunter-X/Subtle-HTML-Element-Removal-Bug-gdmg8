@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      // Incorrect way to remove an element
+      document.getElementById("myDiv").outerHTML = ""; // Bug: Removes the element, but the reference to it remains
+      console.log(document.getElementById("myDiv")); //Returns null as expected
+      // Correct Way to remove the element
+      // var element = document.getElementById("myDiv");
+      // element.parentNode.removeChild(element);
+      // var element1 = document.getElementById("myDiv");
+      // console.log(element1); //Returns null
+    }
+  </script>
+</body>
+</html>
